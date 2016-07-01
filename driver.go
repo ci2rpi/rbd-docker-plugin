@@ -999,3 +999,10 @@ func sh(name string, args ...string) (string, error) {
 	out, err := cmd.Output()
 	return strings.Trim(string(out), " \n"), err
 }
+
+// Path returns the capabilities for volume.
+// This is not yet implemented and only here so it compiles with the newer docker plugins helpers
+func (d cephRBDVolumeDriver) Capabilities(r dkvolume.Request) dkvolume.Response {
+	log.Printf("INFO: CAPABILITIES NOT YET IMPLEMENTED")
+	return dkvolume.Response{Capabilities: dkvolume.Capability{Scope: "NOT YET IMPLEMENTED"}}
+}
